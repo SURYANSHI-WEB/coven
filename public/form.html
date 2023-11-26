@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Registration Form</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+            }
+            .container {
+                width: 100%;
+                max-width: 500px;
+                margin: 0 auto;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+            input[type="text"], input[type="email"], input[type="password"] {
+                width: 100%;
+                padding: 10px;
+                margin: 10px 0;
+                box-sizing: border-box;
+            }
+            input[type="submit"] {
+                background-color: #4CAF50;
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                cursor: pointer;
+                width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Registration Form</h1>
+            <form id="registrationForm">
+                <input type="text" id="name" name="name" placeholder="Full Name" required>
+                <input type="text" id="contact" name="contact" placeholder="Contact Number" required>
+                <input type="email" id="email" name="email" placeholder="Email Address" required>
+                <input type="password" id="password" name="password" placeholder="Create Password" required>
+                <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" required>
+                <input type="submit" value="Register">
+            </form>
+        </div>
+    
+        <script>
+            document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+
+            var formData = new FormData();
+            formData.append('name', name);
+            formData.append('email', email);
+            formData.append('password', password);
+            var formData = new FormData(event.target);
+            var confirmPassword = formData.get('confirm_password');
+            var password = formData.get('password');
+            if (confirmPassword !== password) {
+                alert('The passwords do not match. Please try again.');
+            } else {
+                fetch('submit-registration.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        alert('Registration successful!');
+                    } else {
+                        alert('Registration failed. Please try again.');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Registration failed. Please try again.');
+            });
+        });
+    </script>
+</body>
+</html>
+
+

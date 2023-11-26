@@ -1,0 +1,65 @@
+body {
+  background-image: linear-gradient(to right, rgb(232, 142, 215) 0%, #ef2cae 100%);
+}  
+.book-appointment-page {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    width: 50%;
+    background-color: #f2b0b0;
+  }
+  
+  .book-appointment-header {
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .book-appointment-header h1 {
+    font-size: 30px;
+    font-weight: bold;
+  }
+  
+  .book-appointment-header p {
+    font-size: 16px;
+  }
+  
+  .book-appointment-body {
+    padding: 20px;
+  }
+  
+  .book-appointment-body h2 {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .book-appointment-body p {
+    font-size: 16px;
+  }
+  
+  .book-appointment-body input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .book-appointment-body select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .book-appointment-body button {
+    background-color: #5b3939;
+    color: #fff;
+    padding: 10px 20px;
+    border: 1px solid #5b3939;
+    border-radius: 5px;
+  }
+  
+  .book-appointment-body button:hover {
+    background-color: #d55dad;
+    color: #fff;
+  }
+  
